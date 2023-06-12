@@ -38,3 +38,9 @@
     from { background-position: 0 0; }
     to { background-position: -1600px 0; }
 }
+
+#case2{
+    right:450px;
+    position: absolute;
+    display: block;
+}

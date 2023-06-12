@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case2</title>
+    <style>
+        body {
+            position: relative;
+            width: 100%;
+            height: 99vh;
+
+        }
+
+        .outer-1 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            height: 200px;
+            display: flex;
+        }
+
+        .grid-1 {
+            display: flex;
+            width: 100%;
+            height: 75px;
+        }
+
+
+        .grid-1 > div {
+            width: 120px;
+            height: 50px;
+            border-radius: 15px;
+            position: absolute;
+            left: 18%;
+        }
+
+        .grid-2 {
+            display: flex;
+            width: 100%;
+            height: 75px;
+            position: relative;
+            top: 100px;
+            left: -550px;
+        }
+
+
+        .grid-2 > div {
+            width: 120px;
+            height: 50px;
+            border-radius: 15px;
+            position: relative;
+            left: 45%;
+        }
+
+
+
+        .grid-3 {
+            width: 100%;
+            height: 75px;
+            position: absolute;
+            top: 170px;
+            left: 150px;
+
+        }
+
+        .grid-3 > div {
+            width: 120px;
+            height: 50px;
+            border-radius: 15px;
+            position: absolute;
+            left: 58%;
+        }
+
+
+    </style>
+</head>
+<body>
+<section class="outer-1">
+    <section class="grid-1">
+
+    </section>
+    <section class="grid-2">
+
+    </section>
+
+    <section class="grid-3">
+
+    </section>
+</section>
+
+<script>
+
+    var selectedColor = '';
+    var x = new Array();
+    x.push({
+        name: '',
+        color: 'red'
+    });
+    x.push({
+        name: '',
+        color: 'green'
+    });
+    x.push({
+        name: '',
+        color: 'blue'
+    });
+    x.push({
+        name: '',
+        color: 'yellow'
+    });
+
+    x.push({
+        name: '',
+        color: 'pink'
+    });
+
+    x.push({
+        name: '',
+        color: 'Fuchsia'
+    });
+
+    // =======================
+    var selectedColor2 = '';
+    var y = new Array();
+    y.push({
+        name: '',
+        color: 'red'
+    });
+    y.push({
+        name: '',
+        color: 'green'
+    });
+    y.push({
+        name: '',
+        color: 'blue'
+    });
+    y.push({
+        name: '',
+        color: 'yellow'
+    });
+
+    y.push({
+        name: '',
+        color: 'pink'
+    });
+
+    y.push({
+        name: '',
+        color: 'hotpink '
+    });
+
+
+    var selectedColor3 = '';
+    var z = new Array();
+    z.push({
+        name: '',
+        color: 'red'
+    });
+    z.push({
+        name: '',
+        color: 'green'
+    });
+    z.push({
+        name: '',
+        color: 'blue'
+    });
+    z.push({
+        name: '',
+        color: 'yellow'
+    });
+    z.push({
+        name: '',
+        color: 'pink'
+    });
+    z.push({
+        name: '',
+        color: 'purple'
+    });
+
+    setDivs();
+    setDivsr();
+    setDivs3();
+    setInterval(nextPerson2, 1000);
+    setInterval(nextPerson, 1500);
+    setInterval(nextPerson3, 2000);
+
+    function setDivs() {
+        var grid1 = document.querySelector('.grid-1');
+        grid1.innerHTML = '';
+
+        for (var c = 0; c < x.length; c++) {
+            var div = document.createElement('div');
+            div.style.backgroundColor = x[c].color;
+            div.innerHTML = '<h1>' + x[c].name + '</h1>';
+            grid1.appendChild(div);
+        }
+
+        var gridLine2 = document.createElement('div');
+        gridLine2.className = 'grid-line-2';
+        grid1.appendChild(gridLine2);
+    }
+
+    function setDivsr() {
+        var grid2 = document.querySelector('.grid-2');
+        grid2.innerHTML = '';
+
+        for (var c = 0; c < y.length; c++) {
+            var div = document.createElement('div');
+            div.style.backgroundColor = y[c].color;
+            div.innerHTML = '<h1>' + y[c].name + '</h1>';
+            grid2.appendChild(div);
+        }
+
+        var gridLine2 = document.createElement('div');
+        gridLine2.className = 'grid-line-2';
+        grid2.appendChild(gridLine2);
+    }
+
+    function setDivs3() {
+        var grid3 = document.querySelector('.grid-3');
+        grid3.innerHTML = '';
+
+        for (var c = 0; c < z.length; c++) {
+            var div = document.createElement('div');
+            div.style.backgroundColor = z[c].color;
+            div.innerHTML = '<h1>' + z[c].name + '</h1>';
+            grid3.appendChild(div);
+        }
+
+        var gridLine3 = document.createElement('div');
+        gridLine3.className = 'grid-line-3';
+        grid3.appendChild(gridLine3);
+    }
+
+    function nextPerson() {
+        var last = x.pop();
+        x.unshift(last);
+        setDivs();
+    }
+
+    function nextPerson2() {
+        var lasts = y.pop();
+        y.unshift(lasts);
+        setDivsr();
+    }
+
+    function nextPerson3() {
+        var lastz = z.pop();
+        z.unshift(lastz);
+        setDivs3();
+    }
+</script>
+</body>
+</html>
